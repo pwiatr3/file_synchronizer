@@ -1,5 +1,9 @@
+#pragma once
+
+#include <iostream>
 #include <string>
 #include <filesystem>
+#include <chrono>
 
 namespace fs = std::filesystem;
 
@@ -9,14 +13,17 @@ enum class FileStatus {
     deletedFile
 };
 
-class fileInfo {
+class FileInfo {
 public:
-    fileInfo(std::string fileName, fs::path sourceDirPath, FileStatus status): fileName_(fileName),
-        sourceDirectory_(sourceDirPath),
-        status_(status)
+    FileInfo(std::string fileName, fs::path sourceDirPath, fs::file_time_type modificationTime,FileStatus status): fileName_(fileName),
+        sourceDirectoryPath_(sourceDirPath),
+        modificationTime_(modificationTime)
      {}
-private:
+    friend std::ostream& operator<<(std::ostream& os, const FileInfo& fileInfo);
+// private:
     std::string fileName_;
-    fs::path sourceDirectory_;
-    FileStatus status_;
+    fs::path sourceDirectoryPath_;
+    fs::file_time_type modificationTime_;
 };
+
+std::string file_time_to_string(std::filesystem::file_time_type const& ftime);
