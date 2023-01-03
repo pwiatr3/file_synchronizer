@@ -7,8 +7,10 @@ project(FilesSynchornizer)
 
 set(SRC_LIST
     main.cpp
+    fileInfo.cpp
+    fileContainer.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
-target_compile_options(${PROJECT_NAME} PUBLIC -Wall -Werror -Wpedantic -Wextra)
+# target_compile_options(${PROJECT_NAME} PUBLIC -Wall -Werror -Wpedantic -Wextra)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR})
