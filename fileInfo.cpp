@@ -2,7 +2,7 @@
 
 
 std::ostream& operator<<(std::ostream& os, const FileInfo& fileInfo) {
-    os << fileInfo.sourceDirectoryPath_ << " mod time: " << file_time_to_string(fileInfo.modificationTime_) << '\n';
+    os << fileInfo.fileName_ << ' ' << fileInfo.sourceDirectoryPath_ << " mod time: " << file_time_to_string(fileInfo.modificationTime_) << '\n';
     return os;
 }
 

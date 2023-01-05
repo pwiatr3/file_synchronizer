@@ -3,20 +3,24 @@
 #include <string>
 #include <filesystem>
 #include "fileInfo.hpp"
-#include "fileContainer.hpp"
+#include "fileContainer.hpp" 
+#include "fileSynchronization.hpp"
 
 namespace fs = std::filesystem;
 
-void scan(const fs::path& dir_path, std::vector<FileInfo>& allFileInfo);
-
 int main() {
     // fs::path syncDirectoriesPath {fs::current_path() / "DirForSync"};
-    fs::path syncDirectoriesPath {fs::current_path().parent_path() / "DirForSync"};
-    FileContainer fileContainer;
+    // fs::path syncDirectoriesPath {fs::current_path().parent_path() / "DirForSync"};
+    fs::path syncDirectoriesPath {"DirForSync"};
+    FileContainer allFiles;
+    std::vector<Folder> syncFolders;
+
     
     std::cout << "Sync directory path: " << syncDirectoriesPath << '\n';
-    // scan(syncDirectoriesPath, allFilesInfo);
-
+    scan(syncDirectoriesPath, allFiles, syncFolders);
+    // allFiles.print();
+    printSyncDirectories(syncFolders);
+    bool b = syncFolders[0].contains("file3");
     return 0;
 }
 

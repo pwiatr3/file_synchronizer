@@ -9,6 +9,8 @@ set(SRC_LIST
     main.cpp
     fileInfo.cpp
     fileContainer.cpp
+    fileSynchronization.cpp
+    folder.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})

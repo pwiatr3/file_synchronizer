@@ -26,4 +26,10 @@ void FileContainer::add(FileInfo fileInfo) {
 
 }
 
+// bool contains(std::string fileName) {
+//     auto it = std::find_if(begin(container_), end(container_), [fileInfo](FileInfo& fI){ 
+//             return fI.fileName_ == fileInfo.fileName_; 
+//     });
+//     return it != end(container);    
+// }
 

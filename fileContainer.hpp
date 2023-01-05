@@ -7,7 +7,7 @@ class FileContainer {
 public:
     FileContainer();
     void print();
-    void add(FileInfo fileInfo);
-private:    
+    void add(FileInfo fileInfo);   
+    // bool contains(std::string fileName); // check whether container contains file 
     std::vector<FileInfo> container_;
 };

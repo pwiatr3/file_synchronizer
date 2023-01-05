@@ -15,7 +15,7 @@ enum class FileStatus {
 
 class FileInfo {
 public:
-    FileInfo(std::string fileName, fs::path sourceDirPath, fs::file_time_type modificationTime,FileStatus status): fileName_(fileName),
+    FileInfo(std::string fileName, fs::path sourceDirPath, fs::file_time_type modificationTime): fileName_(fileName),
         sourceDirectoryPath_(sourceDirPath),
         modificationTime_(modificationTime)
      {}
