@@ -13,6 +13,8 @@ set(SRC_LIST
     folder.cpp
 )
 
+add_compile_definitions(RELEASE) # adds compile definition
+
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 # target_compile_options(${PROJECT_NAME} PUBLIC -Wall -Werror -Wpedantic -Wextra)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR})

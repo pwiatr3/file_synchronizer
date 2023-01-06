@@ -6,6 +6,11 @@ std::ostream& operator<<(std::ostream& os, const FileInfo& fileInfo) {
     return os;
 }
 
+bool operator==(const FileInfo& lhs, const FileInfo& rhs) {
+    return (lhs.fileName_ == rhs.fileName_ && lhs.modificationTime_ == rhs.modificationTime_ &&
+                lhs.sourceDirectoryPath_ == rhs.sourceDirectoryPath_);
+}
+
 std::string file_time_to_string(std::filesystem::file_time_type const& ftime) {
     std::time_t cftime = std::chrono::system_clock::to_time_t(
         std::chrono::file_clock::to_sys(ftime));

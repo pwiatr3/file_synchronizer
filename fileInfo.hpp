@@ -20,6 +20,7 @@ public:
         modificationTime_(modificationTime)
      {}
     friend std::ostream& operator<<(std::ostream& os, const FileInfo& fileInfo);
+    friend bool operator==(const FileInfo& lhs, const FileInfo& rhs);
 // private:
     std::string fileName_;
     fs::path sourceDirectoryPath_;

@@ -1,13 +1,17 @@
 #pragma once
+
+#include <algorithm>
 #include <vector>
 #include "fileInfo.hpp"
 
 namespace fs = std::filesystem;
 
-struct Folder
+class Folder
 {
+public:
     Folder(fs::path folderPath);
-    bool contains(const std::string fileName);
+
+    std::vector<FileInfo>::const_iterator contains(const std::string fileName) const;
     fs::path folderPath_;    
     std::vector<FileInfo> files;    
 };

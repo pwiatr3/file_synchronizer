@@ -9,18 +9,23 @@
 namespace fs = std::filesystem;
 
 int main() {
-    // fs::path syncDirectoriesPath {fs::current_path() / "DirForSync"};
-    // fs::path syncDirectoriesPath {fs::current_path().parent_path() / "DirForSync"};
-    fs::path syncDirectoriesPath {"DirForSync"};
+
+    #if (RELEASE) 
+        fs::path syncDirectoriesPath {fs::current_path().parent_path() / "DirForSync"};
+    #else
+        fs::path syncDirectoriesPath {"DirForSync"};
+    #endif
+
     FileContainer allFiles;
     std::vector<Folder> syncFolders;
-
-    
+   
     std::cout << "Sync directory path: " << syncDirectoriesPath << '\n';
     scan(syncDirectoriesPath, allFiles, syncFolders);
     // allFiles.print();
+    sync(syncDirectoriesPath, allFiles, syncFolders);
     printSyncDirectories(syncFolders);
-    bool b = syncFolders[0].contains("file3");
+
+    // bool b = syncFolders[0].contains("file3");
     return 0;
 }
 
