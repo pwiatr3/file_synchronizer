@@ -11,6 +11,8 @@ set(SRC_LIST
     fileContainer.cpp
     fileSynchronization.cpp
     folder.cpp
+    SHA256.cpp
+    fileCheckSum.cpp
 )
 
 add_compile_definitions(RELEASE) # adds compile definition
